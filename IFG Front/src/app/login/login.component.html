@@ -1,0 +1,45 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="../assets/orange_logo.svg" alt="" id="logo">
+    </a>
+  </nav>
+  
+<div>
+  <div class="container col-lg-6">
+  <div class="card-container" >
+    <div class="center">
+       
+        <h1 class="h3 mb-3 font-weight-normal" align="center">Please sign in</h1>
+      
+  <form class="form-signin" layout-align="center">
+    
+    
+    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+          <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+
+
+  <div class="form-group">
+      <label for="nameuser" class="sr-only">Username :</label>
+      <input type="text" class="form-control" id="username" [(ngModel)]="username" placeholder="Username"
+      name="username">
+
+    </div>
+    <div class="form-group">
+      <label for="pwd" class="sr-only">Password:</label>
+      <input type="password" class="form-control" [(ngModel)]="password" id="password" placeholder="Password"
+        name="password">
+    </div>
+
+
+    <div class="checkbox mb-3">
+      <label class="center">
+        <input type="checkbox" value="remember-me" autocomplete="off"> Remember me
+      </label>
+    </div>
+    <button (click)=handleLogin() class="btn btn-lg btn-primary btn-block" >Sign in</button>
+    </form>
+   <p class="mt-5 mb-3 text-muted" align="center">© PFE 2020</p>
+
+
+</div>
+</div>

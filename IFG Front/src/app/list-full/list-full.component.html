@@ -1,0 +1,73 @@
+<nav role="navigation" class="navbar navbar-dark bg-dark navbar-expand-md">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="../assets/orange_logo.svg" ></a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsing-navbar" aria-controls="collapsing-navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse justify-content-between collapse" id="collapsing-navbar">
+        <ul class="navbar-nav">
+            <button type="button"  (click)=" goback()" class="btn btn-info mr-2">Back Application </button>
+            <button type="button"  (click)="gofull()" class="btn btn-info mr-2">Full Application </button>
+            <button type="button"  (click)="gofront()" class="btn btn-info mr-2">Front Application </button>
+            <button type="button"  (click)="go()"class="btn btn-info mr-2">Génerer Application</button>
+        </ul>
+
+            
+               
+            </div>
+            </div>
+            <ul class="navbar-nav">
+              <ul class="navbar-nav navbar-collapse justify-content-end">
+                <li>
+                    <app-logout></app-logout>
+                 
+                </li>
+              </ul>  
+            </ul>
+      </nav>
+
+      <br> <br> <br>
+      <div class="container-fluid">
+        <div class="panel-heading">
+           <h2 class="text-primary" align="center"> Application List</h2>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>nom d application</th>
+                <th>framework</th>
+                <th>version</th>
+                <th>Language</th>
+                <th>version</th>
+                <th>groups</th>
+                <th>artifact</th>
+                <th>Description</th>
+                <th>version Java </th> 
+                <th>Télécharger</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let app of apps | async">
+                <td>{{app.nom_projet}}</td>
+                <td>{{app.framework_front}}</td>
+                <td>{{app.version_front}}</td>
+                <td>{{app.back_language}}</td>
+                <td>{{app.version_back}}</td>
+                <td>{{app.back_group}}</td>
+                <td>{{app.back_artifact}}</td>
+                <td>{{app.back_description}}</td>
+                <td>{{app.version_java}}</td>
+                
+                <td><button (click)="downloadfull(app.id_application)" class="btn btn-danger">Telecharger </button>
+                    
+                    
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+        
+
+      

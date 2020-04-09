@@ -1,0 +1,22 @@
+   <!-- <li class="nav-item dropdown show">
+        <button type="button" class="nav-link btn btn-link btn-inverse dropdown-toggle d-flex align-items-center" data-toggle="dropdown" aria-expanded="true">
+          <span class="svg-avatar mr-1" aria-hidden="true"></span>
+          <span>Hello <span class="text-primary">Admin</span></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right show">
+          <li><a class="dropdown-item"  href="/logout"> <button *ngIf="isLoggedIn" (click)=handleLogout()
+           ></button>Logout</a></li>
+      
+        </ul>
+      </li> -->
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-info" id="dropdownMenu1" ngbDropdownToggle>
+          <span class="svg-avatar mr-1" aria-hidden="true"></span>
+          <span>Hello <span class="text-primary">Admin</span></span>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
+          <button ngbDropdownItem (click)=handleLogout()
+          >Logout</button>
+           
+        </div>
+    </div>

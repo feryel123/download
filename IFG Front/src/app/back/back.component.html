@@ -1,0 +1,174 @@
+<app-menu></app-menu>
+       
+  <nav role="navigation" class="o-stepbar" aria-label="Checkout process">
+    <p class="float-left mt-2 mr-2 font-weight-bold d-sm-none">Step</p>
+    <ol>
+      <li class="stepbar-item">
+        <a class="stepbar-link" href="/general" title="1. Generale">Generale</a>
+      </li>
+      <li class="stepbar-item current">
+        <a class="stepbar-link" href="/general/back-config" title="2. Configuration Back" aria-current="step">Configuration Back</a>
+      </li>
+      <li class="stepbar-item">
+        <a class="stepbar-link"  title="3. Base de données">Base de données</a>
+      </li>
+      <li class="stepbar-item">
+        <a class="stepbar-link"  title="4. CI/CD">CI/CD</a>
+      </li>
+      <li class="stepbar-item">
+        <a class="stepbar-link"  title="5.Deploiement">Deploiement</a>
+      </li>
+    </ol>
+  </nav>
+
+  <main role="main" id="content" class="container my-5"><h1>Configurations : </h1>
+    
+    <div class="row">
+        <div class="col-sm-6">
+            <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+  
+            <div class="form-group">
+              <label for="languageId"  class="is-required">Language</label>
+              <select name="Language" class="custom-select" id="languageId" required name="language" [(ngModel)]="back.language">
+                <option value="" disabled>Please select</option>
+                <option value="Java">JAVA</option>
+                
+              </select>
+            </div>
+<div *ngIf="back.language=='Java'">
+<h1>Spring Boot :</h1>
+            <div class="form-group">
+              <label for="PostUser" class="is-required">Version</label>
+    <select name="version_back" class="custom-select" id="typeId" [(ngModel)]="back.version_back">
+      <option value="" disabled>Please select</option>
+                <option value="2.2.4 Current">2.2.4 Current</option>
+                 <option value="2.3.0 M2">2.3.0 M2</option>
+                 <option value="2.3.0 Snapshot">2.3.0 Snapshot</option>
+                 <option value="2.2.5 Snapshot">2.2.5 Snapshot</option>
+                
+              </select>
+            </div>
+
+<h1>Options : </h1>
+            <div class="form-group">
+            <label for="PostName" class="is-required">Group</label>
+              <input name="group" class="form-control" maxlength="255" type="text" id="group" placeholder="com.example" required aria-required="true" name="group" [(ngModel)]="back.group">
+            </div>
+<div class="form-group">
+    <label for="PostUser" class="is-required">Artifact</label>
+              <input name="artifact" class="form-control" maxlength="255" type="text" id="artifact" placeholder="example" required="required" aria-required="true" title="autor is empty" name="artifact" [(ngModel)]="back.artifact">
+     </div>
+            
+            <div class="form-group" >
+              <label for="packaging"  class="is-required">Packaging</label>
+              <select name="packaging" class="custom-select" id="packaging"  name="packaging" [(ngModel)]="back.packaging">
+                <option value="" disabled selected>Please select</option>
+                <option value="jar" >Jar</option>
+                
+              </select>
+            </div>
+            <div class="form-group" >
+              <label for="java"  class="is-required">Java</label>
+              <select name="java" class="custom-select" id="java" required  name="java" [(ngModel)]="back.version_java">
+                <option value="" disabled>Please select</option>
+                <option value="8" >8</option>
+                <option value="11" >11</option>
+                
+              </select>
+            </div>
+          <div class="form-group">
+              <label for="description" class="is-required">Description</label>
+              <textarea class="form-control" rows="3" required placeholder="Description_exemple" id="description" name="description" [(ngModel)]="back.description"></textarea>
+            </div>
+  
+<ngb-tabset>
+<ngb-tab title="Dependances" >
+  <ng-template ngbTabContent>
+    <div>
+      <label class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" value="devtools" autocomplete="off" >
+        <span class="custom-control-label">Spring Boot DevTools</span>
+      </label>
+        </div>
+       <div>
+      <label class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" value="lombok" autocomplete="off">
+        <span class="custom-control-label"> Lombok</span>
+      </label>
+        </div>
+        <div>
+      <label class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" value="web" autocomplete="off">
+        <span class="custom-control-label">Spring Web</span>
+      </label>
+       </div>
+          <div>
+      <label class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" value="data-rest" autocomplete="off">
+        <span class="custom-control-label">Rest Repositories </span>
+      </label>
+    </div>
+          
+       <div>
+      <label class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" value="security" autocomplete="off">
+        <span class="custom-control-label">Spring Security</span>
+      </label>
+    </div>
+    <div>
+        <label class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" value="web-services" autocomplete="off">
+          <span class="custom-control-label">Spring Web Services</span>
+        </label>
+      </div>
+      <div>
+        <label class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" value="jdbc" autocomplete="off">
+          <span class="custom-control-label">JDBC API</span>
+        </label>
+      </div>
+      <div>
+        <label class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" value="data-jpa" autocomplete="off">
+          <span class="custom-control-label">Spring Data JPA</span>
+        </label>
+      </div>
+      <div>
+        <label class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" value="data-jdbc" autocomplete="off">
+          <span class="custom-control-label">Spring Data JDBC</span>
+        </label>
+      </div>
+            
+   
+  
+</ng-template>
+</ngb-tab >
+</ngb-tabset>
+</div>
+<br><br><br>
+
+<button type ="submit"  class="btn btn-primary" [disabled]="!myForm.form.valid" placement="left">
+  Suivant
+  </button>
+
+          </form>
+        </div>
+      </div>
+    </main>
+   
+   <br><br><br>
+
+    <footer role="contentinfo" class="o-footer">
+      <div class="o-footer-bottom">
+        <div class="container">
+          <div class="row mb-0">
+            <ul class="nav">
+              <li class="nav-item"><a href="#" class="nav-link"><span>Contact</span></a></li>
+              <li class="nav-item"><a href="#" class="nav-link"><span>Help</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    

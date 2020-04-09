@@ -1,0 +1,79 @@
+<!--Nav Bar-->
+<app-menu></app-menu>
+<!-- Steps-->
+<nav role="navigation" class="o-stepbar" aria-label="Checkout process">
+    <p class="float-left mt-2 mr-2 font-weight-bold d-sm-none">Step</p>
+    <ol>
+      <li class="stepbar-item ">
+        <a class="stepbar-link" href="/general" title="1. Generale" aria-current="step">Generale</a>
+      </li>
+      <li class="stepbar-item current ">
+        <a class="stepbar-link"  href="/front" title="2. Configuration " >Configuration Front</a>
+      </li>
+      <li class="stepbar-item">
+        <a class="stepbar-link"  title="3. Base de données">Base de données </a>
+      </li>
+      <li class="stepbar-item">
+        <a class="stepbar-link"  title="4. CI/CD">CI/CD</a>
+      </li>
+      <li class="stepbar-item">
+        <a class="stepbar-link" title="5. Deploiement">Deploiement</a>
+      </li>
+    </ol>
+  </nav>
+
+<!--Configuration Front -->
+<main role="main" id="nom" class="container my-5">
+    <div class="row">
+        <div class="col-sm-6">
+          <form (ngSubmit)="onSubmit()" #myForm="ngForm" >
+
+           
+          <!-- Framework Type -->  
+            <div class="form-group">
+              <label for="type" class="is-required">Framework</label>
+              <select class="custom-select" id="type_framework" name="type_framework" required [(ngModel)]="front.type_framework">     
+                <option value="" disabled>Please select</option>
+              <option id="angular" value="angular">Angular </option>
+              
+              </select>
+            </div>
+
+             <!--Version Type-->  
+             <div *ngIf="front.type_framework=='angular'">
+             <div class="form-group">
+                <label for="type" class="is-required">Version</label>
+                <select class="custom-select" id="version" name="version" required [(ngModel)]="front.version">     
+                  <option value="" disabled>Please select</option>
+                <option value="7" id="angular7">7 </option>
+                <option value="8" id="angular8">8 </option>
+                <option value="9" id="angular9">9 </option>
+                
+                </select>
+              </div>
+            </div>
+              <button type ="submit" [disabled]="!myForm.form.valid" class="btn btn-primary" placement="left">
+                Suivant
+                </button>
+                
+          </form>
+          </div>
+        </div>
+    </main>
+    <!--/.container-->
+  
+    <br> <br> <br><br> <br> 
+    <footer role="contentinfo" class="o-footer">
+      <div class="o-footer-bottom">
+        <div class="container">
+          <div class="row mb-0">
+            <ul class="nav">
+              <li class="nav-item"><a href="#" class="nav-link"><span>Contact</span></a></li>
+              <li class="nav-item"><a href="#" class="nav-link"><span>Help</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+

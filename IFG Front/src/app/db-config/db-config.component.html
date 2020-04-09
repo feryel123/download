@@ -1,0 +1,75 @@
+<app-menu></app-menu>
+       
+  <nav role="navigation" class="o-stepbar" aria-label="Checkout process">
+    <p class="float-left mt-2 mr-2 font-weight-bold d-sm-none">Step</p>
+    <ol>
+      <li class="stepbar-item">
+        <a class="stepbar-link" href="/general" title="1. Generale">Generale</a>
+      </li>
+      <li class="stepbar-item ">
+        <a class="stepbar-link"  href="" title="2. Configuration Back" aria-current="step">Configuration Back</a>
+      </li>
+      <li class="stepbar-item current">
+        <a class="stepbar-link"  title="3. Base de données">Base de données</a>
+      </li>
+      <li class="stepbar-item">
+        <a class="stepbar-link"  title="4. CI/CD">CI/CD</a>
+      </li>
+      <li class="stepbar-item">
+        <a class="stepbar-link"  title="5.Deploiement">Deploiement</a>
+      </li>
+    </ol>
+  </nav>
+
+  <main role="main" id="content" class="container my-5">
+    
+    <div class="row">
+    <div class="col-sm-6">
+    <div role="form" id="myForm">
+  <div class="form-group">
+    <label for="db"  class="is-required">Type de base de données</label>
+    <select name="db" class="custom-select" id="db"  name="db" >
+      <option value="postgresql">PostgreSQL</option>
+      <option value=" mysql">MySQL</option>
+      <option value=" mongo">MongoDB</option>
+      
+    </select>
+    </div>
+
+    <div class="form-group">
+        <label for="url" class="is-required">URL de base </label>
+                  <input name="url" class="form-control" maxlength="255" type="text" id="url" required  aria-required="true"  name="url" [(ngModel)]="db.url">
+         </div>
+
+    <div class="form-group">
+        <label for="nomdb" class="is-required">Nom de base de données</label>
+                  <input name="nomdb" class="form-control" maxlength="255" type="text" id="nomdb" required="required" aria-required="true"  name="nomdb" [(ngModel)]="db.nomdb">
+         </div>
+  </div>
+  <div class="form-group">
+    <label for="user" class="is-required">Nom d'utilisateur</label>
+              <input name="username" class="form-control" maxlength="255" type="text" id="username"  required="required" aria-required="true"  name="nomdb" [(ngModel)]="db.username">
+     </div>
+
+
+  <div class="form-group ">
+    <label for="Password"  class="is-required">Password</label>
+    
+      <input class="form-control" id="Password" placeholder="Password" type="password" [(ngModel)]="db.password">
+</div>
+
+<button type ="submit"  (click) ="save()" class="btn btn-primary" placement="left">
+    Suivant
+    </button>
+    </div>
+    </div>
+    </main>
+ 
+
+
+
+
+
+  
+
+   

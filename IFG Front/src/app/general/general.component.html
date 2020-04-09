@@ -1,0 +1,84 @@
+<!--Nav Bar-->
+<app-menu></app-menu>
+
+<!-- Steps-->
+<nav role="navigation" class="o-stepbar" aria-label="Checkout process">
+  <p class="float-left mt-2 mr-2 font-weight-bold d-sm-none">Step</p>
+  <ol>
+    <li class="stepbar-item current">
+      <a class="stepbar-link" href="/general" title="1. Generale" aria-current="step">Generale</a>
+    </li>
+    <li class="stepbar-item ">
+      <a class="stepbar-link"  title="2. Configuration " >Configuration</a>
+    </li>
+    <li class="stepbar-item">
+      <a class="stepbar-link"  title="3. Base de données">Base de données </a>
+    </li>
+    <li class="stepbar-item">
+      <a class="stepbar-link"  title="4. CI/CD">CI/CD</a>
+    </li>
+    <li class="stepbar-item">
+      <a class="stepbar-link" title="5. Deploiement">Deploiement</a>
+    </li>
+  </ol>
+</nav>
+<!--Nom du projet -->
+
+        
+<main role="main" id="nom" class="container my-5">
+  <div class="row">
+      <div class="col-sm-6">
+        <form role="form" id="myForm" (ngSubmit)="onSubmit()" #myForm="ngForm">
+         <div class="alert alert-warning" *ngIf='invaldname'>{{errorMessage}}</div>
+
+      <div class="form-group">
+            <label for="nom" class="is-required">Nom</label>
+            <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="nom_projet" placeholder="Nom du projet">
+            
+          </div>
+   
+        <!--Type d'application-->  
+         <div class="form-group">
+            
+            <label for="type" class="is-required">Type d'application</label>
+            <select class="custom-select" id="type" name="varChoix" required [(ngModel)]="varChoix" aria-placeholder="Nom du projet">     
+              <option selected disabled>Please select</option>
+        
+            <option id="Front">Front End </option> 
+            <option id="Back"> Back End </option>
+            <option id="Full">Full-stack </option>
+            </select>
+          </div>
+
+          
+         <!-- <div class="form-group row">
+            <div class="offset-sm-1 col-sm-10">
+              <button routerLinkActive="active" (click)=choix() class="btn btn-lg btn-primary btn-block" routerLink="Back-config">Save</button>
+                            
+            
+            </div>
+          </div>-->
+
+          <button routerLinkActive="active" (click)=choix() [disabled]="!myForm.form.valid" class="btn btn-primary" placement="left" >
+            Suivant
+            </button>
+           </form>
+      </div>
+  </div>
+</main> 
+     
+  <!--/.container-->
+
+  <br> <br> <br><br> 
+  <footer role="contentinfo" class="o-footer">
+    <div class="o-footer-bottom">
+      <div class="container">
+        <div class="row mb-0">
+          <ul class="nav">
+            <li class="nav-item"><a href="#" class="nav-link"><span>Contact</span></a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><span>Help</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
