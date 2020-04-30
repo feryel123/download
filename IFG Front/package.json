@@ -22,7 +22,7 @@
     "boosted": "^4.4.1",
     "content-type": "^1.0.4",
     "file-saver": "^2.0.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jszip": "^3.2.2",
     "ng-boosted": "^5.1.7",
     "popper.js": "^1.16.1",
